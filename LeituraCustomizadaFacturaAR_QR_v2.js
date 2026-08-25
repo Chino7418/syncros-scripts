@@ -29,7 +29,7 @@ function LeituraCustomizadaFacturaAR_QR () {
     }
 
     this.GetNomeArquivo = function () {
-        return 'LeituraCustomizadaFacturaAR_QR.js';
+        return 'LeituraCustomizadaFacturaAR_QR_v2.js';
     }
 
     // ---------------------------------------------------------------
