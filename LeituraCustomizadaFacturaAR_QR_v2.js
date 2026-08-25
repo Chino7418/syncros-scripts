@@ -111,7 +111,8 @@ function LeituraCustomizadaFacturaAR_QR () {
 
                 var qrResult = window.jsQR(imageData.data, imageData.width, imageData.height);
 
-                if (qrResult && qrResult.data && qrResult.data.indexOf('afip.gob.ar') >= 0) {
+                if (qrResult && qrResult.data && qrResult.data.indexOf('?p=') >= 0 &&
+                    (qrResult.data.indexOf('afip.gob.ar') >= 0 || qrResult.data.indexOf('arca.gob.ar') >= 0)) {
                     _this.ParsearQrAfip(qrResult.data);
                 } else {
                     console.log('No se detectó QR AFIP en la imagen. Resultado jsQR: ' + (qrResult ? qrResult.data : 'null'));
