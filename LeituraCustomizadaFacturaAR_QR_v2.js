@@ -200,6 +200,7 @@ function LeituraCustomizadaFacturaAR_QR () {
 
         if (valores.hasOwnProperty('tituloFactura')) { valores.tituloFactura.value = this.titulo; }
         if (valores.hasOwnProperty('titulo')) { valores.titulo.value = this.titulo; }
+        if (valores.hasOwnProperty('claveunica')) { valores.claveunica.value = this.tipoComprobante + '-' + this.caeAutorizacion; }
         if (valores.hasOwnProperty('cuitproveedor')) { valores.cuitproveedor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('cuitemisor')) { valores.cuitemisor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('tipocomprobante')) { valores.tipocomprobante.value = this.tipoComprobante; }
