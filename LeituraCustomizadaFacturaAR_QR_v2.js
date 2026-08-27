@@ -198,6 +198,7 @@ function LeituraCustomizadaFacturaAR_QR () {
 
         console.log('DEBUG - Campos reales que Syncros espera:', Object.keys(valores));
 
+        if (valores.hasOwnProperty('tituloFactura')) { valores.tituloFactura.value = this.titulo; }
         if (valores.hasOwnProperty('titulo')) { valores.titulo.value = this.titulo; }
         if (valores.hasOwnProperty('cuitproveedor')) { valores.cuitproveedor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('cuitemisor')) { valores.cuitemisor.value = this.cuitEmisor; }
