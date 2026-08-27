@@ -200,7 +200,11 @@ function LeituraCustomizadaFacturaAR_QR () {
 
         if (valores.hasOwnProperty('tituloFactura')) { valores.tituloFactura.value = this.titulo; }
         if (valores.hasOwnProperty('titulo')) { valores.titulo.value = this.titulo; }
-        if (valores.hasOwnProperty('claveunica')) { valores.claveunica.value = this.tipoComprobante + '-' + this.caeAutorizacion; }
+        if (valores.hasOwnProperty('claveunica')) {
+            var ptoVtaPad = _this.puntoVenta ? _this.puntoVenta.padStart(4, '0') : '';
+            var nroCmpPad = _this.nroComprobante ? _this.nroComprobante.padStart(8, '0') : '';
+            valores.claveunica.value = ptoVtaPad + '-' + nroCmpPad + '-' + _this.caeAutorizacion;
+        }
         if (valores.hasOwnProperty('cuitproveedor')) { valores.cuitproveedor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('cuitemisor')) { valores.cuitemisor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('tipocomprobante')) { valores.tipocomprobante.value = this.tipoComprobante; }
