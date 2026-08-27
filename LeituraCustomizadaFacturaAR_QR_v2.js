@@ -154,7 +154,7 @@ function LeituraCustomizadaFacturaAR_QR () {
 
             var ptoVtaPad = _this.puntoVenta ? _this.puntoVenta.padStart(4, '0') : '';
             var nroCmpPad = _this.nroComprobante ? _this.nroComprobante.padStart(8, '0') : '';
-            _this.titulo = 'Factura ' + _this.tipoComprobante + ' ' + ptoVtaPad + '-' + nroCmpPad;
+            _this.titulo = ptoVtaPad + '-' + nroCmpPad + ' (CAE ' + _this.caeAutorizacion + ')';
 
             console.log('QR AFIP decodificado OK:', datos);
         } catch (ex) {
@@ -196,6 +196,7 @@ function LeituraCustomizadaFacturaAR_QR () {
     this.AddItemJSonValoresOcr = function (index) {
         var valores = objSyncrosGlobal.valoresJson[index].values;
 
+        if (valores.hasOwnProperty('tituloFactura')) { valores.tituloFactura.value = this.titulo; }
         if (valores.hasOwnProperty('titulo')) { valores.titulo.value = this.titulo; }
         if (valores.hasOwnProperty('cuitproveedor')) { valores.cuitproveedor.value = this.cuitEmisor; }
         if (valores.hasOwnProperty('cuitemisor')) { valores.cuitemisor.value = this.cuitEmisor; }
